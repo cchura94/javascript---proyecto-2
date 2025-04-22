@@ -33,6 +33,7 @@
         function agregarNuevo(){
             // alert("AGREGANDO...")
             const nuevaTarea = document.getElementById("nueva_tarea").value;
+            // console.warn(nuevaTarea)
             if(nuevaTarea){
                 listado_tareas.push(nuevaTarea);
                 localStorage.setItem("Mis-tareas", JSON.stringify(listado_tareas))
@@ -43,7 +44,7 @@
         }
 
         function listarTareas(){
-            listado_tareas = JSON.parse(localStorage.getItem("Mis-tareas"));
+            listado_tareas = JSON.parse(localStorage.getItem("Mis-tareas") || "[]");
 
             const listaT = document.getElementById('lista_tareas');
             listaT.innerHTML = ""
